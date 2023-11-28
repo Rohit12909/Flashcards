@@ -1,5 +1,6 @@
 # import cards
 import pickle
+import customtkinter as ctk
 global file_number
 
 
@@ -36,20 +37,7 @@ flash_cards = []
 exit = False 
 
 # while exit == False:
-
-
-
-file_name = "testFile" + str(file_number) + ".txt"
-gate = 1
-with open (file_name, "a") as file1:
-    while gate == 1:
-        term = input("enter a term: ")
-        definition = input("enter the definition: ")
-        file1.write(term + "*"+ definition)
-        file1.write("\n")
-        gate = int(input("enter 0 to escape, enter 1 to continue entering terms/definition: "))
-    file1.flush()
-    file1.close()        
+     
 
 
 

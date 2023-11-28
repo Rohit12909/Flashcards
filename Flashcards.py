@@ -1,5 +1,6 @@
 from tkinter import *
 import customtkinter as ctk
+from main import flashcards
 
 currentSet = []
 flashcardSets = []
@@ -17,14 +18,18 @@ def previousCardButton():
 def flipCardButton():
     pass
 
+def createNewSet():
+    cards = flashcards("ds", "sd", 0).create_New_Set("set 1")
+    print(cards)
+
 def mainMenu():
     clearFrame()
     frame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
     title = ctk.CTkLabel(master=frame, text="Flashcards", width=150, height=25, font=('Papyrus', 50))
     title.place(relx=0.5, rely=0.10, anchor=CENTER)
-
+    newSet = ctk.CTkButton(master=frame, text="Create Set", command=createNewSet)
+    newSet.place(relx=0.5, rely=.5, anchor=CENTER)
     
-
 def interface():
     nextCard = ctk.CTkButton(master=frame, text="Next Card", command=nextCardButton)
     nextCard.place(relx=0.3, rely=0.5, anchor=CENTER)
