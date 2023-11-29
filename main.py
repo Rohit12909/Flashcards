@@ -8,7 +8,8 @@ file_number = 0
 class flashcards:
     def __init__(self, term, definition, file_number):
         self.term = term
-        self.definition = definition        
+        self.definition = definition  
+        self.file_number = file_number      
     def __str__(self):
         return self.term+ ' ' +self.definition
     def create_New_Set(self, name):
