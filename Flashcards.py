@@ -43,6 +43,8 @@ def interface():
     menu = ctk.CTkButton(master=frame, text="Main Menu", command=mainMenu)
     menu.place(relx=0.75, rely=0.5, anchor=CENTER)
 
+
+
 def main():
     global root, frame
 
@@ -57,7 +59,7 @@ def main():
     root.grid_columnconfigure(0, weight=1)
     root.grid_rowconfigure(1, weight=1)
 
-    interface()
+    mainMenu()
 
     root.mainloop()
 
