@@ -19,7 +19,9 @@ def flipCardButton():
     pass
 
 def createNewSet():
-    cards = flashcards("ds", "sd", 0).create_New_Set("set 1")
+    cards = flashcards("ds", "sd", 0, frame)
+    cards.create_New_Set("AWS")
+    cards.term.place(relx=0.5, rely=0.35, anchor=CENTER)
     print(cards)
 
 def mainMenu():

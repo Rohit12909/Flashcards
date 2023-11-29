@@ -7,10 +7,11 @@ global file_number
 file_number = 0
 
 class flashcards:
-    def __init__(self, term, definition, file_number):
+    def __init__(self, term, definition, file_number, root):
         self.term = term
         self.definition = definition  
-        self.file_number = file_number      
+        self.file_number = file_number
+        self.root = root 
     def __str__(self):
         return self.term+ ' ' +self.definition
     def create_New_Set(self, name):
@@ -18,9 +19,11 @@ class flashcards:
         gate = 1
         with open (file_name, "a") as file1:
             while gate == 1:
-                term = input("enter a term: ")
-                definition = input("enter the definition: ")
-                file1.write(term + "*"+ definition)
+                term = ctk.CTkEntry(master=self.root)
+                definition = ctk.CTkEntry(master=self.root)
+                term.place(relx=0.5, rely=0.35)
+                definition.place(relx=.5, rely=0.45)
+                file1.write(str(term) + "*"+ str(definition))
                 file1.write("\n")
                 gate = int(input("enter 0 to escape, enter 1 to continue entering terms/definition: "))
             file1.flush()
