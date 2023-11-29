@@ -1,13 +1,30 @@
 # import cards
 import pickle
+global file_number
 
+
+file_number = 0
 
 class flashcards:
-    def __init__(self, term, definition):
+    def __init__(self, term, definition, file_number):
         self.term = term
-        self.definition = definition
+        self.definition = definition        
     def __str__(self):
         return self.term+ ' ' +self.definition
+    def create_New_Set(self, name):
+        file_name = str(name) + str(file_number) + ".txt"
+        gate = 1
+        with open (file_name, "a") as file1:
+            while gate == 1:
+                term = input("enter a term: ")
+                definition = input("enter the definition: ")
+                file1.write(term + "*"+ definition)
+                file1.write("\n")
+                gate = int(input("enter 0 to escape, enter 1 to continue entering terms/definition: "))
+            file1.flush()
+            self.file_number += 1
+            file1.close() 
+
     
 
 
@@ -19,7 +36,9 @@ flash_cards = []
 exit = False 
 
 # while exit == False:
-file_number = 0
+
+
+
 file_name = "testFile" + str(file_number) + ".txt"
 gate = 1
 with open (file_name, "a") as file1:
@@ -27,6 +46,7 @@ with open (file_name, "a") as file1:
         term = input("enter a term: ")
         definition = input("enter the definition: ")
         file1.write(term + "*"+ definition)
+        file1.write("\n")
         gate = int(input("enter 0 to escape, enter 1 to continue entering terms/definition: "))
     file1.flush()
     file1.close()        
