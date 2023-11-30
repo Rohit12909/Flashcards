@@ -1,10 +1,14 @@
 # import cards
+import os
 import pickle
 import customtkinter as ctk
 global file_number
 
 
 file_number = 0
+
+
+#loop that allows user to create flashcard sets that store the terms and definitions to a text file 
 
 class flashcards:
     def __init__(self, term, definition, file_number):
@@ -26,8 +30,26 @@ class flashcards:
             file1.flush()
             self.file_number += 1
             file1.close() 
+    def call_files():
+            #reads all the files in the folder 
+        # folder path
+        dir_path = r'C:/Users/Admin/Desktop/repos/Flashcard/Flashcards/Sets'
 
-    
+        # list to store files
+        res = []
+
+        # Iterate directory
+        for path in os.listdir(dir_path):
+            # check if current path is a file
+            if os.path.isfile(os.path.join(dir_path, path)):
+                res.append(path)
+        print(res)
+
+
+
+
+
+
 
 
 
