@@ -2,14 +2,11 @@ from tkinter import *
 import customtkinter as ctk
 from main import flashcards
 
-<<<<<<< HEAD
 currentFile = ""
 
-=======
 currentSet = []
 flashcardSets = []
 clicked_set =""
->>>>>>> 8a04de0ad5978bcc3387c0e7c016f41804b0477b
 
 def clearFrame():
     for widgets in frame.winfo_children():
@@ -55,7 +52,6 @@ def chooseSet():
     
 
 def createNewSet():
-<<<<<<< HEAD
     setNameLabel = ctk.CTkLabel(frame, text="Set Name")
     setNameLabel.place(relx=0.37, rely=0.25)
 
@@ -97,10 +93,6 @@ def add_To_Set():
     backToMenu = ctk.CTkButton(master=frame, text="Return to Main Menu", command=mainMenu)
     backToMenu.place(relx=0.5, rely=0.75, anchor=CENTER)
 
-=======
-    cards = flashcards("ds", "sd", 0).create_New_Set("set 1")
-    print(cards)
->>>>>>> 8a04de0ad5978bcc3387c0e7c016f41804b0477b
 
 def mainMenu():
     clearFrame()
@@ -110,7 +102,6 @@ def mainMenu():
     title.place(relx=0.5, rely=0.10, anchor=CENTER)
 
     newSet = ctk.CTkButton(master=frame, text="Create Set", command=createNewSet)
-<<<<<<< HEAD
     newSet.place(relx=0.5, rely=.75, anchor=CENTER)
 
     pickSet = ctk.CTkButton(master= frame, text = "Choose existing set", command=chooseSet)
@@ -119,11 +110,6 @@ def mainMenu():
     addToSet = ctk.CTkButton(master=frame, text="Add to Set", command=add_To_Set)
     addToSet.place(relx=0.7, rely=0.75, anchor=CENTER)
 
-=======
-    newSet.place(relx=0.5, rely=.5, anchor=CENTER)
-    pickSet = ctk.CTkButton(master= frame, text = "Choose existing set", command=chooseSet)
-    pickSet.place(relx =.5, rely =.7, anchor= CENTER)
->>>>>>> 8a04de0ad5978bcc3387c0e7c016f41804b0477b
     
 def interface():
     nextCard = ctk.CTkButton(master=frame, text="Next Card", command=nextCardButton)

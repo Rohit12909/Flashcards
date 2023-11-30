@@ -11,38 +11,21 @@ file_number = 0
 #loop that allows user to create flashcard sets that store the terms and definitions to a text file 
 
 class flashcards:
-<<<<<<< HEAD
     def __init__(self, term, definition, file_number, root, filename):
         self.term = term
         self.definition = definition  
         self.file_number = file_number
         self.root = root 
         self.filename = filename
-=======
-    def __init__(self, term, definition, file_number):
-        self.term = term
-        self.definition = definition  
-        self.file_number = file_number      
->>>>>>> 8a04de0ad5978bcc3387c0e7c016f41804b0477b
     def __str__(self):
         return self.term+ ' ' +self.definition
     def create_New_Card(self, name, term, definition):
         self.filename = str(name) + str(file_number) + ".txt"
         gate = 1
-<<<<<<< HEAD
         with open (self.filename, "a") as file1:
             file1.write(str(term) + "*"+ str(definition))
             file1.write("\n")
                 #gate = int(input("enter 0 to escape, enter 1 to continue entering terms/definition: "))
-=======
-        with open (file_name, "a") as file1:
-            while gate == 1:
-                term = input("enter a term: ")
-                definition = input("enter the definition: ")
-                file1.write(term + "*"+ definition)
-                file1.write("\n")
-                gate = int(input("enter 0 to escape, enter 1 to continue entering terms/definition: "))
->>>>>>> 8a04de0ad5978bcc3387c0e7c016f41804b0477b
             file1.flush()
             self.file_number += 1
             file1.close() 
