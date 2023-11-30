@@ -18,6 +18,9 @@ def previousCardButton():
 def flipCardButton():
     pass
 
+def chooseSet():
+    flashcards.call_files()
+
 def createNewSet():
     cards = flashcards("ds", "sd", 0, frame)
     cards.create_New_Set("AWS")
@@ -31,6 +34,8 @@ def mainMenu():
     title.place(relx=0.5, rely=0.10, anchor=CENTER)
     newSet = ctk.CTkButton(master=frame, text="Create Set", command=createNewSet)
     newSet.place(relx=0.5, rely=.5, anchor=CENTER)
+    pickSet = ctk.CTkButton(master= frame, text = "Choose existing set", command=chooseSet)
+    pickSet.place(relx =.5, rely =.7, anchor= CENTER)
     
 def interface():
     nextCard = ctk.CTkButton(master=frame, text="Next Card", command=nextCardButton)
