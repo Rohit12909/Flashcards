@@ -2,8 +2,14 @@ from tkinter import *
 import customtkinter as ctk
 from main import flashcards
 
+<<<<<<< HEAD
 currentFile = ""
 
+=======
+currentSet = []
+flashcardSets = []
+clicked_set =""
+>>>>>>> 8a04de0ad5978bcc3387c0e7c016f41804b0477b
 
 def clearFrame():
     for widgets in frame.winfo_children():
@@ -12,6 +18,10 @@ def clearFrame():
 def nextCardButton():
     pass
 
+def optionmenu_callback(choice):
+    print("optionmenu dropdown clicked:", choice)
+
+  
 def previousCardButton():
     pass
 
@@ -19,9 +29,33 @@ def flipCardButton():
     pass
 
 def chooseSet():
-    flashcards.call_files()
+
+    clearFrame()
+
+    sets = flashcards.call_files()
+    clicked_set = StringVar()
+    clicked_set.set(sets[0])
+    # Create Dropdown menu 
+    drop = ctk.CTkComboBox( frame , variable= clicked_set , values=sets ) 
+    drop.pack() 
+
+    clicked_set.set(str(drop))
+
+    # clicked_set = ctk.CTkOptionMenu(master=frame,
+    #                                    values=sets,
+    #                                    command=optionmenu_callback,
+    #                                    variable=clicked_set)
+    
+    print(clicked_set.get())
+    back_To_Menu = ctk.CTkButton(master = frame, text = "back to main menu", command = mainMenu)
+    back_To_Menu.place(relx =.5, rely =.7, anchor= CENTER)
+    select_set = ctk.CTkButton(master = frame, text = "continue with selected set", command =learn_flashCards )
+    select_set.place(relx =.5, rely = .8, anchor = CENTER)
+    
+    
 
 def createNewSet():
+<<<<<<< HEAD
     setNameLabel = ctk.CTkLabel(frame, text="Set Name")
     setNameLabel.place(relx=0.37, rely=0.25)
 
@@ -63,6 +97,10 @@ def add_To_Set():
     backToMenu = ctk.CTkButton(master=frame, text="Return to Main Menu", command=mainMenu)
     backToMenu.place(relx=0.5, rely=0.75, anchor=CENTER)
 
+=======
+    cards = flashcards("ds", "sd", 0).create_New_Set("set 1")
+    print(cards)
+>>>>>>> 8a04de0ad5978bcc3387c0e7c016f41804b0477b
 
 def mainMenu():
     clearFrame()
@@ -72,6 +110,7 @@ def mainMenu():
     title.place(relx=0.5, rely=0.10, anchor=CENTER)
 
     newSet = ctk.CTkButton(master=frame, text="Create Set", command=createNewSet)
+<<<<<<< HEAD
     newSet.place(relx=0.5, rely=.75, anchor=CENTER)
 
     pickSet = ctk.CTkButton(master= frame, text = "Choose existing set", command=chooseSet)
@@ -80,6 +119,11 @@ def mainMenu():
     addToSet = ctk.CTkButton(master=frame, text="Add to Set", command=add_To_Set)
     addToSet.place(relx=0.7, rely=0.75, anchor=CENTER)
 
+=======
+    newSet.place(relx=0.5, rely=.5, anchor=CENTER)
+    pickSet = ctk.CTkButton(master= frame, text = "Choose existing set", command=chooseSet)
+    pickSet.place(relx =.5, rely =.7, anchor= CENTER)
+>>>>>>> 8a04de0ad5978bcc3387c0e7c016f41804b0477b
     
 def interface():
     nextCard = ctk.CTkButton(master=frame, text="Next Card", command=nextCardButton)
@@ -93,6 +137,9 @@ def interface():
 
     menu = ctk.CTkButton(master=frame, text="Main Menu", command=mainMenu)
     menu.place(relx=0.75, rely=0.5, anchor=CENTER)
+def learn_flashCards():
+    clearFrame()
+    print(clicked_set)
 
 
 def main():
