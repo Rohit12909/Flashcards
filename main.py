@@ -11,40 +11,29 @@ file_number = 0
 #loop that allows user to create flashcard sets that store the terms and definitions to a text file 
 
 class flashcards:
-    def __init__(self, term, definition, file_number, root):
+    def __init__(self, term, definition, file_number, root, filename):
         self.term = term
         self.definition = definition  
         self.file_number = file_number
         self.root = root 
+        self.filename = filename
     def __str__(self):
         return self.term+ ' ' +self.definition
-    def create_New_Set(self, name):
-        file_name = str(name) + str(file_number) + ".txt"
+    def create_New_Card(self, name, term, definition):
+        self.filename = str(name) + str(file_number) + ".txt"
         gate = 1
-        with open (file_name, "a") as file1:
-            while gate == 1:
-                termLabel = ctk.CTkLabel(self.root, text="Term")
-                termLabel.place(relx=0.4, rely=0.25)
-
-                term = ctk.CTkEntry(master=self.root)
-                term.place(relx=0.45, rely=0.25)
-
-                defLabel = ctk.CTkLabel(self.root, text="Definition")
-                defLabel.place(relx=0.37, rely=0.35)
-
-                definition = ctk.CTkEntry(master=self.root)
-                definition.place(relx=.45, rely=0.35)
-
-                file1.write(str(term) + "*"+ str(definition))
-                file1.write("\n")
-                gate = int(input("enter 0 to escape, enter 1 to continue entering terms/definition: "))
+        with open (self.filename, "a") as file1:
+            file1.write(str(term) + "*"+ str(definition))
+            file1.write("\n")
+                #gate = int(input("enter 0 to escape, enter 1 to continue entering terms/definition: "))
             file1.flush()
             self.file_number += 1
             file1.close() 
     def call_files():
-            #reads all the files in the folder 
+        #reads all the files in the folder 
         # folder path
-        dir_path = r'C:/Users/Admin/Desktop/repos/Flashcard/Flashcards/Sets'
+        dir_path = r'C:\\Users\\Marethyu\\Documents\\Flashcards\\Flashcards\\Sets'
+
 
         # list to store files
         res = []
