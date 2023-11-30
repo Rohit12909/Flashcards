@@ -23,10 +23,18 @@ class flashcards:
         gate = 1
         with open (file_name, "a") as file1:
             while gate == 1:
+                termLabel = ctk.CTkLabel(self.root, text="Term")
+                termLabel.place(relx=0.4, rely=0.25)
+
                 term = ctk.CTkEntry(master=self.root)
+                term.place(relx=0.45, rely=0.25)
+
+                defLabel = ctk.CTkLabel(self.root, text="Definition")
+                defLabel.place(relx=0.37, rely=0.35)
+
                 definition = ctk.CTkEntry(master=self.root)
-                term.place(relx=0.5, rely=0.35)
-                definition.place(relx=.5, rely=0.45)
+                definition.place(relx=.45, rely=0.35)
+
                 file1.write(str(term) + "*"+ str(definition))
                 file1.write("\n")
                 gate = int(input("enter 0 to escape, enter 1 to continue entering terms/definition: "))

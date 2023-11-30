@@ -33,9 +33,9 @@ def mainMenu():
     title = ctk.CTkLabel(master=frame, text="Flashcards", width=150, height=25, font=('Papyrus', 50))
     title.place(relx=0.5, rely=0.10, anchor=CENTER)
     newSet = ctk.CTkButton(master=frame, text="Create Set", command=createNewSet)
-    newSet.place(relx=0.5, rely=.5, anchor=CENTER)
+    newSet.place(relx=0.5, rely=.75, anchor=CENTER)
     pickSet = ctk.CTkButton(master= frame, text = "Choose existing set", command=chooseSet)
-    pickSet.place(relx =.5, rely =.7, anchor= CENTER)
+    pickSet.place(relx =.5, rely =.9, anchor= CENTER)
     
 def interface():
     nextCard = ctk.CTkButton(master=frame, text="Next Card", command=nextCardButton)
