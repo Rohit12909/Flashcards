@@ -4,6 +4,7 @@ from main import flashcards
 
 currentSet = []
 flashcardSets = []
+clicked_set =""
 
 def clearFrame():
     for widgets in frame.winfo_children():
@@ -12,6 +13,10 @@ def clearFrame():
 def nextCardButton():
     pass
 
+def optionmenu_callback(choice):
+    print("optionmenu dropdown clicked:", choice)
+
+  
 def previousCardButton():
     pass
 
@@ -19,7 +24,30 @@ def flipCardButton():
     pass
 
 def chooseSet():
-    flashcards.call_files()
+
+    clearFrame()
+
+    sets = flashcards.call_files()
+    clicked_set = StringVar()
+    clicked_set.set(sets[0])
+    # Create Dropdown menu 
+    drop = ctk.CTkComboBox( frame , variable= clicked_set , values=sets ) 
+    drop.pack() 
+
+    clicked_set.set(str(drop))
+
+    # clicked_set = ctk.CTkOptionMenu(master=frame,
+    #                                    values=sets,
+    #                                    command=optionmenu_callback,
+    #                                    variable=clicked_set)
+    
+    print(clicked_set.get())
+    back_To_Menu = ctk.CTkButton(master = frame, text = "back to main menu", command = mainMenu)
+    back_To_Menu.place(relx =.5, rely =.7, anchor= CENTER)
+    select_set = ctk.CTkButton(master = frame, text = "continue with selected set", command =learn_flashCards )
+    select_set.place(relx =.5, rely = .8, anchor = CENTER)
+    
+    
 
 def createNewSet():
     cards = flashcards("ds", "sd", 0).create_New_Set("set 1")
@@ -47,6 +75,9 @@ def interface():
 
     menu = ctk.CTkButton(master=frame, text="Main Menu", command=mainMenu)
     menu.place(relx=0.75, rely=0.5, anchor=CENTER)
+def learn_flashCards():
+    clearFrame()
+    print(clicked_set)
 
 
 

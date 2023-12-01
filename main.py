@@ -42,8 +42,10 @@ class flashcards:
         for path in os.listdir(dir_path):
             # check if current path is a file
             if os.path.isfile(os.path.join(dir_path, path)):
+                path=path[:-4]
                 res.append(path)
-        print(res)
+        
+        return res
 
 
 

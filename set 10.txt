@@ -1,0 +1,2 @@
+apple*green
+& C:/Users/Admin/AppData/Local/Microsoft/WindowsApps/python3.11.exe c:/Users/Admin/Desktop/repos/Flashcard/Flashcards/Flashcards.py*& C:/Users/Admin/AppData/Local/Microsoft/WindowsApps/python3.11.exe c:/Users/Admin/Desktop/repos/Flashcard/Flashcards/Flashcards.py
